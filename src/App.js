@@ -1,24 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+// import AddSubscriber from "./components/AddSubscriber/AddSubscriber";
+// import ShowSubscriber from "./components/ShowSubscriber/ShowSubscriber";
+import AddSubscriberContainer from "./containers/AddSubscriberContainer";
+import ShowSubscriberContainer from "./containers/ShowSubscriberContainer";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 function App() {
+  
+  // const [addSubscriber, setaddSubscriber] = useState([]);
+  // const addSubscriberDetails = (newSubscriber) => {
+  //   console.log("App directory: passing function as a agrument");
+  //   console.log(newSubscriber);
+  //   setaddSubscriber([...addSubscriber, newSubscriber]);
+  // };
+  // const deleteSubscriberHandler = (subscriberId) => {
+  //   const updateDetails = addSubscriber.filter((elementForIdMatch) => {
+  //     return elementForIdMatch.id != subscriberId;
+  //   });
+  //   setaddSubscriber(updateDetails);
+  // };
+
+ 
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <ShowSubscriberContainer
+              />
+            }
+          />
+        </Routes>
+        <Routes>
+          <Route
+            path="/AddSubscriber"
+            element={
+              <AddSubscriberContainer />
+            }
+          />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
